@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=RecommendationRunner
+comment1.params=
+comment1.target=java.util.ArrayList\ getItemsToRate()
+comment1.text=public\ ArrayList<String>\ getItemsToRate\ ()\ {\n\ \ \ \ \ \ \ \ int\ length\ \=\ 20;\n\ \ \ \ \ \ \ \ Filter\ f\ \=\ new\ YearAfterFilter(2000);\n\ \ \ \ \ \ \ \ Random\ rand\ \=\ new\ Random();\n\ \ \ \ \ \ \ \ ArrayList\ <String>\ list\ \=\ MovieDatabase.filterBy(f);\n\ \ \ \ \ \ \ \ ArrayList\ <String>\ output\ \=\ new\ ArrayList\ <String>();\n\ \ \ \ \ \ \ \ for\ (int\ i\ \=0;\ i<length;\ i++)\ {\n\ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ \ \ \ \ output.add(MovieDatabase.getTitle(list.get(rand.nextInt(list.size()))));\n\ \ \ \ \ \ \ \ }\n\ \ \ \ \ \ \ \ return\ output;\n}
+comment2.params=webRaterID
+comment2.target=void\ printRecommendationsFor(java.lang.String)
+comment2.text=public\ void\ printRecommendationsFor\ (String\ webRaterID)\ {\n\ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ FourthRatings\ fr\ \=\ new\ FourthRatings();\n\ \ \ \ \ \ \ \ RaterDatabase.initialize("ratings.csv");\n\ \ \ \ \ \ \ \ MovieDatabase.initialize("ratedmoviesfull.csv");\n\ \ \ \ \ \ \ \ ArrayList\ <Rating>\ recommendations\ \=\ fr.getSimilarRatings(\ webRaterID,\ 20,\ 5);\n\ \ \ \ \n\ \ \ \ \ \ \ \ Collections.sort(recommendations);\n\ \ \ \ \ \ \ \ if(recommendations.size()\ \=\=\ 0)\ {\n\ \ \ \ \ \ \ \ \ \ \ \ System.out.println("<p>Sorry,\ there\ are\ no\ recommendations\ for\ you.</p>");\n\ \ \ \ \ \ \ \ \ \ \ \ System.exit(1);\n\ \ \ \ \ \ \ \ }\n\ \ \ \ \ \ \ \ System.out.println("<html><table>");\n\ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ System.out.println("<tr><th>Rank</th>"\ +\ "<th>Title</th>"\ +\ "<th>Rating</th></tr>");\n\ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ for\ (int\ i\ \=\ 0;\ i\ <20;\ i++)\ {\n\ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ \ \ \ \ System.out.println("<tr><td>"+\ (i+1)\ +\ "</td>"\ +\ "<td>"\ \ \ +\ MovieDatabase.getTitle(recommendations.get(i).getItem())\ +\ "</td>"\ \ +"<td>"\ +\ recommendations.get(i).getValue()\ +\ "</td></tr>");\n\ \ \ \ \ \ \ \ }\n\ \ \ \ \ \ \ \ System.out.println("</table></html>");\n}
+comment3.params=
+comment3.target=void\ printError()
+comment4.params=
+comment4.target=void\ printUpperPart()
+comment5.params=
+comment5.target=void\ printCSS()
+comment6.params=
+comment6.target=void\ printLowerPart()
+numComments=7
